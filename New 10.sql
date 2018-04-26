@@ -1,16 +1,11 @@
-/* Formatted on 4/5/2018 6:26:21 PM (QP5 v5.227.12220.39754) */
-  SELECT bi.CUSTOMER_ID,
-         getBurner (bi.CUSTOMER_ID) BURNER,
-         BI.CUSTOMER_NAME,
-         COUNT (*) cnt
-    FROM BILL_NON_METERED bi, CUSTOMER_CONNECTION cc
-   WHERE     BI.CUSTOMER_ID = CC.CUSTOMER_ID
-         AND CC.STATUS = 1
-         AND bi.area_id = '01'
-         AND BI.CUSTOMER_ID BETWEEN '010100001' AND '010100010'
-         AND BILL_YEAR || LPAD (BILL_MONTH, 2, 0) <= '201712'
-GROUP BY BI.CUSTOMER_ID,
-         BI.CUSTOMER_NAME,
-         CUSTOMER_CATEGORY,
-         bi.AREA_ID
-  HAVING COUNT (*) >= 1
+/* Formatted on 4/26/2018 4:58:16 PM (QP5 v5.227.12220.39754) */
+UPDATE customer_connection
+   SET status = 2
+ WHERE     CUSTOMER_ID IN
+              (SELECT customer_id
+    FROM customer_connection
+   WHERE     customer_id NOT IN
+                (SELECT DISTINCT customer_id FROM bill_non_metered)
+         AND status = 0
+         AND SUBSTR (customer_id, 1, 2) = '01')
+       AND status = 0

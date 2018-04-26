@@ -1,0 +1,1 @@
+Select (select max(effective_date) from burner_qnt_change where customer_id='010100032' and RAIZER_DISS_STATUS=0) as latest_connection  From MVIEW_CUSTOMER_INFO Where Customer_Id='010100032'
