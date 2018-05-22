@@ -1,0 +1,8 @@
+CREATE TABLE JALALABAD.TEMP_SMS_local
+(
+  CUSTOMER_ID        VARCHAR2(20 BYTE)          NOT NULL,
+  MOBILE_NO          VARCHAR2(100 BYTE),
+  text             VARCHAR2(400 BYTE),
+  SEND_DATE          DATE,
+  STATUS             VARCHAR2(2 BYTE)
+)
