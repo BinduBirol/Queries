@@ -1,0 +1,1 @@
+select * from APPLIANCE_RATE_HISTORY where APPLIANCE_ID IN (select distinct(APPLIANCE_ID) from APPLIANCE_RATE_HISTORY) order by APPLIANCE_ID
