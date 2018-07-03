@@ -1,0 +1,1 @@
+select * from burner_qnt_change where NEW_APPLIANCE_QNT_BILLCAL= 0 and substr(CUSTOMER_ID,1,2)='01'

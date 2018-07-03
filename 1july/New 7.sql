@@ -1,0 +1,1 @@
+select customer_id from bill_metered where bill_month=5 and bill_year=2018 and substr(customer_id, 1, 2)='19'

@@ -1,0 +1,1 @@
+select * from burner_qnt_change where EFFECTIVE_DATE>TO_DATE('31/12/2017', 'dd/MM/YYYY') and substr(CUSTOMER_ID,1,2)='01'
