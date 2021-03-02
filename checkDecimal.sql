@@ -1,0 +1,1 @@
+select * from TEMP_TEST where not regexp_like(mess,'^[0-9]+$');

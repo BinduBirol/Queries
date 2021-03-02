@@ -1,1 +1,11 @@
-select * from bill_metered where status=1 and TO_NUMBER (bill_year || LPAD (bill_month, 2, 0)) >= 201606
+/* Formatted on 7/29/2018 1:44:16 PM (QP5 v5.227.12220.39754) */
+  SELECT BILL_ID,
+         DEDUCT_AMOUNT,
+         DEDUCT_SURCHARGE,
+         BANK_ID,
+         BRANCH_ID,
+         ACCOUNT_NO,
+         TRANS_DATE
+    FROM BILL_COLL_ADVANCED
+   WHERE COLLECTED_BY = 'G-' || '1239784' AND BILL_ID IS NOT NULL
+ORDER BY BILL_ID
